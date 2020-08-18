@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Piece</title>
+</head>
+<style>
+    section {
+        background-image: url("thumb2-elephant-4k-wildlife-thailand-elephants.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        /* width: 100%;
+        height: 100vh; */
+        height: 100vh;
+        width: 100%;
+        transition: 2s;
+
+
+    }
+
+    body {
+        background: rgba(19, 19, 23, 0.8);
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+
+    .center {
+        color: white;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 50px;
+        font-family: sans-serif;
+        margin: 40px;
+        text-transform: capitalize;
+    }
+
+    button {
+        margin: 0 auto;
+        height: 60px;
+        width: 500px;
+        background: #5454ff;
+        border: none;
+        border-radius: 6px;
+        font-size: 25px;
+        color: #000;
+        cursor: pointer;
+    }
+
+    .modal-parent {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100%;
+        display: none;
+    }
+
+    .modal {
+        background-color: white;
+        width: 70%;
+        padding: 35px;
+        border-radius: 6px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 22px;
+        font-family: Arial, Helvetica, sans-serif;
+        position: relative;
+        animation: 1s dropshow;
+
+
+    }
+
+    @keyframes dropshow {
+        0% {
+            top: -100px;
+        }
+
+        100% {
+            top: 50%;
+        }
+
+    }
+
+    .x {
+        position: absolute;
+        right: 10px;
+        top: 2px;
+        font-size: 40px;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+
+    <section>
+        <div class="center">
+            <h1>Click here Below for a POP
+                UP</h1>
+            <button type="button">Click here</button>
+
+        </div>
+    </section>
+    <div class="modal-parent">
+        <div class="modal">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil veritatis esse suscipit quo. Accusantium
+                nulla, ex tempore in dolores aspernatur sed hic velit ipsa saepe aut libero tenetur voluptates
+                incidunt!Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis magni eaque reprehenderit?
+                Illum
+                veritatis cupiditate harum dolor dolores aliquid sapiente accusantium dolorem magnam ex, provident eius
+                vitae quos sed dolorum? Ut, harum quos accusantium, adipisci earum sunt ipsam itaque quasi porro eaque
+                ea laudantium. Asperiores expedita aspernatur cupiditate ipsam accusantium.</p>
+            <span class="x" draggable="true">&times;</span>
+
+        </div>
+
+    </div>
+
+
+
+    <script>
+        let o = document.querySelector(".modal-parent");
+        let j = document.querySelector("button");
+        let k = document.querySelector(".x");
+        let blur1 = document.querySelector("section");
+        j.addEventListener("click", appear);
+
+        function appear() {
+            o.style.display = "block";
+            blur1.style.filter = "blur(8px)";
+
+
+        }
+        k.addEventListener('click', disappear);
+
+        function disappear() {
+            o.style.display = "none";
+            blur1.style.filter = "blur(0px)";
+        }
+        o.addEventListener("click", disappear2);
+
+        function disappear2(x) {
+            if (x.target.className ==
+                "modal-parent"
+                ) { //to check for wherever we click, if we get the class modal parent then we hide the modal
+                o.style.display = "none";
+                blur1.style.filter = "blur(0px)";
+
+            }
+
+
+        }
+    </script>
+
+
+</body>
+
+
+</html>
